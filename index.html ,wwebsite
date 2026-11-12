@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Luxury ethnic couture and timeless fashion by The Edits Couture by PS." />
+  <meta name="theme-color" content="#faf7f2" />
+  <title>The Edits Couture by PS | Elegance in Every Thread</title>
+
+  <style>
+    :root {
+      --ivory: #faf7f2;
+      --champagne: #efe3d5;
+      --gold: #c5a46d;
+      --gold-deep: #9b7c4d;
+      --brown: #3d302b;
+      --muted: #7a6b62;
+      --white: #ffffff;
+      --line: #e8ddd1;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Arial, Helvetica, sans-serif;
+      --container: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      background: var(--ivory);
+      color: var(--brown);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; max-width: 100%; }
+    button, input, textarea { font: inherit; }
+    h1,h2,h3 { font-family: var(--serif); font-weight: 400; margin: 0; }
+
+    .topline {
+      height: 4px;
+      background: var(--gold);
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,247,242,.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-wrap {
+      width: min(calc(100% - 40px), var(--container));
+      min-height: 82px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand img {
+      width: 260px;
+      height: 72px;
+      object-fit: contain;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 2vw, 30px);
+      transition: all .2s ease;
+    }
+
+    .site-nav a {
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 10px;
+      color: var(--brown);
+      transition: color .2s ease;
+    }
+
+    .site-nav a:hover, .site-nav a:focus-visible {
+      color: var(--gold-deep);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid #d7c9b8;
+      background: transparent;
+      color: var(--brown);
+      padding: 10px 12px;
+      cursor: pointer;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      background: linear-gradient(90deg, var(--champagne) 0%, var(--champagne) 56%, #f8efe7 100%);
+      min-height: 660px;
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+    }
+
+    .hero-copy {
+      width: min(100%, 650px);
+      justify-self: end;
+      padding: 82px 54px 82px max(24px, calc((100vw - var(--container)) / 2));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      animation: rise .7s ease both;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--gold-deep);
+      font-size: 10px;
+      line-height: 1.7;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin-top: 18px;
+      font-size: clamp(44px, 5vw, 84px);
+      line-height: .96;
+      letter-spacing: -1.8px;
+    }
+
+    .hero-tag {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(22px, 2.5vw, 34px);
+      color: var(--gold-deep);
+      margin: 12px 0 10px;
+    }
+
+    .hero-description {
+      max-width: 440px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 14px 22px;
+      border: 1px solid var(--brown);
+      background: var(--brown);
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      font-size: 10px;
+      transition: all .2s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover, .btn:focus-visible {
+      background: var(--gold-deep);
+      border-color: var(--gold-deep);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--brown);
+    }
+
+    .btn-outline:hover, .btn-outline:focus-visible {
+      background: var(--brown);
+      color: var(--white);
+    }
+
+    .hero-visual {
+      min-height: 660px;
+      overflow: hidden;
+      background: #f5ecdf;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 22%;
+    }
+
+    section {
+      padding: 88px 22px;
+    }
+
+    .container {
+      width: min(100%, var(--container));
+      margin: 0 auto;
+    }
+
+    .center { text-align: center; }
+
+    .section-title {
+      margin: 12px 0 18px;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1.1;
+    }
+
+    .lead {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .about {
+      background: var(--white);
+    }
+
+    .collections {
+      background: var(--ivory);
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 42px;
+    }
+
+    .product-card {
+      background: var(--white);
+      border: 1px solid rgba(197,164,109,.18);
+      overflow: hidden;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(61,48,43,.08);
+    }
+
+    .product-image {
+      aspect-ratio: 4 / 5;
+      background: #f3e7dc;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform .45s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.03);
+    }
+
+    .product-card h3 {
+      margin: 0;
+      padding: 18px 12px 8px;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .price {
+      margin: 0;
+      padding: 0 12px 22px;
+      color: var(--gold-deep);
+      text-align: center;
+      letter-spacing: .8px;
+      font-size: 15px;
+    }
+
+    .why-us {
+      background: var(--champagne);
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 42px;
+    }
+
+    .benefit {
+      padding: 26px 18px;
+      border: 1px solid #d8c8b7;
+      text-align: center;
+      background: rgba(255,255,255,.15);
+    }
+
+    .benefit-symbol {
+      color: #a17d48;
+      font-size: 30px;
+      font-family: var(--serif);
+    }
+
+    .benefit h3 {
+      margin: 14px 0 8px;
+      font-size: 20px;
+    }
+
+    .benefit p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .contact {
+      background: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: clamp(28px, 6vw, 74px);
+      margin-top: 42px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      margin: 0 0 14px;
+      font-size: 25px;
+      letter-spacing: .5px;
+    }
+
+    .contact-info p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .contact-info a {
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      color: var(--gold-deep);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .field input, .field textarea {
+      width: 100%;
+      border: 1px solid #dfd5ca;
+      background: var(--ivory);
+      color: var(--brown);
+      padding: 14px;
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .field input:focus, .field textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(197,164,109,.12);
+    }
+
+    .field textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+      margin-top: 4px;
+      cursor: pointer;
+    }
+
+    .form-note {
+      min-height: 18px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .footer {
+      background: var(--champagne);
+      padding: 38px 20px 24px;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-family: var(--serif);
+      font-size: 20px;
+      letter-spacing: 2px;
+    }
+
+    .footer-tagline {
+      margin: 8px 0 18px;
+      color: var(--gold-deep);
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 18px;
+    }
+
+    .footer-contact,
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 20px;
+      margin: 16px 0;
+    }
+
+    .footer-contact a,
+    .footer-nav a {
+      text-decoration: none;
+      color: var(--brown);
+      font-size: 12px;
+    }
+
+    .footer-nav {
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 10px;
+    }
+
+    .copyright {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .wa-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 50;
+      background: #257b50;
+      color: var(--white);
+      padding: 14px 17px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.12);
+    }
+
+    .wa-float:hover {
+      background: #1f6c44;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .collection-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 680px) {
+      .nav-wrap {
+        width: calc(100% - 24px);
+        min-height: 72px;
+      }
+
+      .brand img {
+        width: 190px;
+        height: 58px;
+      }
+
+      .menu-toggle { display: block; }
+
+      .site-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 20px 16px;
+        background: var(--ivory);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .site-nav.open {
+        display: flex;
+      }
+
+      .site-nav a {
+        padding: 12px 2px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .site-nav a:last-child { border-bottom: 0; }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        width: 100%;
+        padding: 58px 24px 48px;
+      }
+
+      .hero-visual {
+        min-height: 420px;
+        height: 460px;
+      }
+
+      section { padding: 68px 18px; }
+
+      .contact-grid { grid-template-columns: 1fr; }
+      .collection-grid, .benefits { grid-template-columns: 1fr; }
+
+      .wa-float {
+        right: 12px;
+        bottom: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+
+  <header class="header">
+    <div class="nav-wrap">
+      <a href="#home" class="brand" aria-label="The Edits Couture by PS">
+        <img src="assets/brand-logo.png" alt="The Edits Couture by PS logo" />
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+        Menu
+      </button>
+
+      <nav class="site-nav" id="mainNav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">Our Story</a>
+        <a href="#collections">Collections</a>
+        <a href="#why-us">Why Choose Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">The Edits Couture by PS</p>
+        <h1>THE EDITS<br>COUTURE</h1>
+        <p class="hero-tag">Elegance in Every Thread.</p>
+        <p class="hero-description">
+          Discover thoughtfully curated ethnic wear and timeless couture pieces designed to make every occasion special.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#collections" class="btn">Explore Collection</a>
+          <a href="#contact" class="btn btn-outline">Contact Us</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img src="assets/look-mauve.png" alt="Luxury mauve couture outfit" />
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container center">
+        <p class="eyebrow">The story behind the style</p>
+        <h2 class="section-title">About The Edits Couture</h2>
+        <p class="lead">
+          At THE EDITS COUTURE BY PS, we celebrate the beauty of Indian fashion through timeless elegance,
+          beautifully crafted detailing and thoughtfully curated styles. Our edit is designed for moments worth remembering.
+        </p>
+      </div>
+    </section>
+
+    <section class="collections" id="collections">
+      <div class="container center">
+        <p class="eyebrow">A touch of timeless beauty</p>
+        <h2 class="section-title">Our Collections</h2>
+        <p class="lead">A curated glimpse of our signature fashion edit. Contact us for collection enquiries.</p>
+
+        <div class="collection-grid">
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/look-yellow.png" alt="Festive yellow couture outfit" />
+            </div>
+            <h3>Festive Collection</h3>
+            <p class="price">₹5,000</p>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/look-cream.png" alt="Cream elegant occasion outfit" />
+            </div>
+            <h3>Elegant Occasion Wear</h3>
+            <p class="price">₹3,500</p>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/look-mauve.png" alt="Mauve couture ethnic wear" />
+            </div>
+            <h3>Designer Ethnic Wear</h3>
+            <p class="price">₹10,000</p>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/look-lavender.png" alt="Lavender premium traditional outfit" />
+            </div>
+            <h3>Premium Traditional Styles</h3>
+            <p class="price">₹12,500</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-us" id="why-us">
+      <div class="container center">
+        <p class="eyebrow">The couture experience</p>
+        <h2 class="section-title">Why Choose Us</h2>
+
+        <div class="benefits">
+          <article class="benefit">
+            <div class="benefit-symbol">✧</div>
+            <h3>Unique Fashion Styles</h3>
+            <p>Thoughtfully selected silhouettes that stand apart with personality and grace.</p>
+          </article>
+
+          <article class="benefit">
+            <div class="benefit-symbol">❖</div>
+            <h3>Beautiful Detailing</h3>
+            <p>Elegant embellishments, texture and craftsmanship that elevate every moment.</p>
+          </article>
+
+          <article class="benefit">
+            <div class="benefit-symbol">◇</div>
+            <h3>Curated Collections</h3>
+            <p>A refined edit inspired by modern Indian couture and timeless class.</p>
+          </article>
+
+          <article class="benefit">
+            <div class="benefit-symbol">♡</div>
+            <h3>Personal Assistance</h3>
+            <p>Friendly guidance for your enquiries, styling and collection selection.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="center">
+          <p class="eyebrow">We would love to hear from you</p>
+          <h2 class="section-title">Contact Us</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>THE EDITS COUTURE BY PS</h3>
+            <p>For collection enquiries and personalised assistance, contact us directly.</p>
+
+            <p>
+              <strong>Phone:</strong> <a href="tel:+918383853961">83838 53961</a><br />
+              <strong>Email:</strong> <a href="mailto:theeditscouture@gmail.com">theeditscouture@gmail.com</a>
+            </p>
+
+            <div class="contact-actions">
+              <a class="btn" href="tel:+918383853961">Call Us</a>
+              <a class="btn" href="https://wa.me/918383853961" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a class="btn btn-outline" href="mailto:theeditscouture@gmail.com">Email Us</a>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <label class="field">
+              Your name
+              <input id="name" name="name" type="text" required />
+            </label>
+
+            <label class="field">
+              Your phone number
+              <input id="phone" name="phone" type="tel" />
+            </label>
+
+            <label class="field">
+              Your email
+              <input id="email" name="email" type="email" />
+            </label>
+
+            <label class="field">
+              Your enquiry
+              <textarea id="message" name="message" placeholder="Tell us what you are looking for..." required></textarea>
+            </label>
+
+            <button type="submit" class="btn">Send Enquiry on WhatsApp</button>
+            <p class="form-note">Your message will open in WhatsApp so you can send it directly.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">THE EDITS COUTURE BY PS</div>
+    <div class="footer-tagline">Elegance in Every Thread.</div>
+
+    <div class="footer-contact">
+      <a href="tel:+918383853961">83838 53961</a>
+      <a href="mailto:theeditscouture@gmail.com">theeditscouture@gmail.com</a>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="#home">Home</a>
+      <a href="#about">Our Story</a>
+      <a href="#collections">Collections</a>
+      <a href="#why-us">Why Choose Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <p class="copyright">© <span id="year"></span> The Edits Couture by PS. All rights reserved.</p>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/918383853961" target="_blank" rel="noopener noreferrer">
+    WhatsApp Enquiry
+  </a>
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const nav = document.getElementById("mainNav");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = nav.classList.toggle("open");
+      this.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const text = [
+        "Hello The Edits Couture by PS,",
+        `Name: ${name}`,
+        `Phone: ${phone || "Not provided"}`,
+        `Email: ${email || "Not provided"}`,
+        `Enquiry: ${message}`
+      ].join("\n");
+
+      const url = "https://wa.me/918383853961?text=" + encodeURIComponent(text);
+      window.open(url, "_blank", "noopener,noreferrer");
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
